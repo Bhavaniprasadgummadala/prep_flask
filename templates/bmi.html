@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <h1>BMI Calculator</h1>
+    <form method="post">
+        <label>Weight (kg):</label>
+        <input type="number" step="any" name="weight" required><br><br>
+
+        <label>Height (cm):</label>
+        <input type="number" step="any" name="height" required><br><br>
+
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Your BMI is: {{ result }}</h2>
+        {% if result != "Invalid input" and result != "Invalid height value" %}
+            {% if result < 18.5 %}
+                <p>Category: Underweight</p>
+            {% elif result < 24.9 %}
+                <p>Category: Normal weight</p>
+            {% elif result < 29.9 %}
+                <p>Category: Overweight</p>
+            {% else %}
+                <p>Category: Obese</p>
+            {% endif %}
+        {% else %}
+            <p>{{ result }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
