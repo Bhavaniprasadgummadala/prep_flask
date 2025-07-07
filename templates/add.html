@@ -1,0 +1,16 @@
+<html>
+<body>
+<form method = "post">
+    <label for = "a">A:</label>
+    <input type = "number" name ="a" id="a" value = "{{ a or '' }}" required/>
+    <br />
+    <label for = "b">B:</label>
+    <input type = "number" name ="b" id="b" value = "{{ b or '' }}" required/>
+    <br />
+    <button type = "submit">ADD</button>
+</form>
+ {% if result is not none %}
+<h2> Result : {{ result }}</h2>
+{% endif %}
+</body>
+</html>
