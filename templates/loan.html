@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Loan Calculator</title>
+</head>
+<body>
+    <h2>Student Loan EMI Calculator</h2>
+    <form method="post">
+        <label>Loan Amount (₹):</label>
+        <input type="number" name="amount" step="any" required><br><br>
+
+        <label>Interest Rate (% per year):</label>
+        <input type="number" name="rate" step="any" required><br><br>
+
+        <label>Loan Term (Years):</label>
+        <input type="number" name="years" required><br><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if result and result != "Invalid input" %}
+        <h3>Results:</h3>
+        <p><strong>Loan Amount:</strong> ₹{{ result.loan_amount }}</p>
+        <p><strong>Interest Rate:</strong> {{ result.interest_rate }}%</p>
+        <p><strong>Loan Term:</strong> {{ result.years }} years</p>
+        <p><strong>Monthly EMI:</strong> ₹{{ result.monthly_emi }}</p>
+        <p><strong>Total Payment:</strong> ₹{{ result.total_payment }}</p>
+    {% elif result == "Invalid input" %}
+        <p style="color:red;">Invalid input. Please enter valid numbers.</p>
+    {% endif %}
+</body>
+</html>
